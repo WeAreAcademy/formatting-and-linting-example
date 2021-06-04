@@ -1,5 +1,9 @@
 name: CI
-on: push
+on:
+  push:
+  pull-request:
+    branches:
+      - main
 jobs:
   lint:
     runs-on: ubuntu-latest
