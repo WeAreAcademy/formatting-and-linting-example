@@ -5,19 +5,13 @@ on:
     branches:
       - main
 jobs:
-  check-formatting:
+  build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Install modules
       run: yarn
-    - name: Check formatting with Pretiter
+    - name: Check formatting with Prettier
       run: yarn format:check
-
-  lint:
-    runs-on: ubuntu-latest
-    needs: check-formatting
-    steps:
-    - uses: actions/checkout@v2
-    - name: Run ESLint
+    - name: Check quality with ESLint
       run: yarn lint
