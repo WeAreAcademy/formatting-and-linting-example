@@ -5,11 +5,13 @@ on:
     branches:
       - main
 jobs:
-  lint:
+  build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Install modules
       run: yarn
-    - name: Run ESLint
+    - name: Check formatting with Prettier
+      run: yarn format:check
+    - name: Check quality with ESLint
       run: yarn lint
