@@ -16,7 +16,8 @@ jobs:
 
   lint:
     runs-on: ubuntu-latest
+    needs: check-formatting
     steps:
-    - needs: check-formatting
+    - uses: actions/checkout@v2
     - name: Run ESLint
       run: yarn lint
